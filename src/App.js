@@ -103,7 +103,7 @@ class App extends Component {
               <option value='small'>Small</option>
               <option value='medium'>Medium</option>
             </select>
-            <button onClick={() => {this.handleTavernSelect()}}>Go to the Tavern!</button>
+            <button onClick={() => {if (this.state.tavernSize !== '----') this.handleTavernSelect()}}>Go to the Tavern!</button>
           </div>
           <div>
             <p>You walk into a tavern called {this.state.currentTavern.name}, {this.state.currentTavern.atmosphere}</p>
