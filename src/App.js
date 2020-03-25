@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import { randomChoice } from "./modules/utility";
 
 class App extends Component {
@@ -15,8 +14,8 @@ class App extends Component {
       bartenderDataClean: [],
       tavernDataClean: [],
       tavernSize: '----',
-      currentTavern: [],
-      currentBartender: [],
+      currentTavern: {},
+      currentBartender: {},
     };
     this.handleTavernSizeSelect = this.handleTavernSizeSelect.bind(this);
     this.generateData =  this.generateData.bind(this);
@@ -63,11 +62,14 @@ class App extends Component {
 
   handleTavernSelect() {
     let size = this.state.tavernSize;
-    let tavernData = this.state.tavernDataClean;
-    let selectedSize = tavernData.filter((tavern) => tavern.size.toLowerCase() === size);
-    let selected = selectedSize[randomChoice(selectedSize.length) - 1];
+    let tavernData = this.state.tavernDataClean.slice();
+    let bartenderData = this.state.bartenderDataClean.slice();
+    let selectedSizeTavern = tavernData.filter((tavern) => tavern.size.toLowerCase() === size);
+    let selectedSizeBartender = bartenderData.filter((bartender) => bartender.size.toLowerCase() === size);
+    let selectedTavern = selectedSizeTavern[randomChoice(selectedSizeTavern.length) - 1];
+    let selectedBartender = selectedSizeBartender[randomChoice(selectedSizeBartender.length) - 1];
 
-    this.setState({currentTavern: selected});
+    this.setState({currentTavern: selectedTavern, currentBartender: selectedBartender});
   }
 
   componentDidMount() {
@@ -92,9 +94,6 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <p>
-            {this.state.title}
-          </p>
           <div>
             <p>{this.state.title}</p>
             <p>Select your tavern size:</p>
@@ -105,9 +104,12 @@ class App extends Component {
             </select>
             <button onClick={() => {if (this.state.tavernSize !== '----') this.handleTavernSelect()}}>Go to the Tavern!</button>
           </div>
-          <div>
-            <p>You walk into a tavern called {this.state.currentTavern.name}, {this.state.currentTavern.atmosphere}</p>
-          </div>
+          {Object.keys(this.state.currentTavern).length > 0 && <div>
+            <p>You walk into a tavern called <span className={'highlighted'}>{this.state.currentTavern.name}</span>.</p>
+            <p><span className={'highlighted'}>{this.state.currentTavern.atmosphere}</span>.</p>
+            <p>You walk up to the bar, behind which stands <span className={'highlighted'}>{this.state.currentBartender.name}</span>, <span className={'highlighted'}>{this.state.currentBartender.appearance}</span>.</p>
+            <p><span className={'highlighted'}>{this.state.currentBartender.greeting}</span>.</p>
+          </div>}
         </header>
       </div>
     );
