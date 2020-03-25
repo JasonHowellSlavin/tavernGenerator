@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/tavernGenerator/static/css/main.8bc976f4.chunk.css",
+    "main.js": "/tavernGenerator/static/js/main.4db5a4e5.chunk.js",
+    "main.js.map": "/tavernGenerator/static/js/main.4db5a4e5.chunk.js.map",
+    "runtime-main.js": "/tavernGenerator/static/js/runtime-main.30725a4a.js",
+    "runtime-main.js.map": "/tavernGenerator/static/js/runtime-main.30725a4a.js.map",
+    "static/js/2.dea769a7.chunk.js": "/tavernGenerator/static/js/2.dea769a7.chunk.js",
+    "static/js/2.dea769a7.chunk.js.map": "/tavernGenerator/static/js/2.dea769a7.chunk.js.map",
+    "index.html": "/tavernGenerator/index.html",
+    "precache-manifest.74998e0e9fb1af5af7e6471c96fe2050.js": "/tavernGenerator/precache-manifest.74998e0e9fb1af5af7e6471c96fe2050.js",
+    "service-worker.js": "/tavernGenerator/service-worker.js",
+    "static/css/main.8bc976f4.chunk.css.map": "/tavernGenerator/static/css/main.8bc976f4.chunk.css.map",
+    "static/js/2.dea769a7.chunk.js.LICENSE.txt": "/tavernGenerator/static/js/2.dea769a7.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.30725a4a.js",
+    "static/js/2.dea769a7.chunk.js",
+    "static/css/main.8bc976f4.chunk.css",
+    "static/js/main.4db5a4e5.chunk.js"
+  ]
+}
